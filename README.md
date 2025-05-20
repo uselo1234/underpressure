@@ -24,10 +24,9 @@
             position: absolute;
             left: 20px;
             top: 20px;
-            /* Añadido para el fondo azul */
             background-color: #003063;
-            padding: 5px; /* Ajusta el padding según sea necesario */
-            border-radius: 5px; /* Opcional: para redondear las esquinas del fondo */
+            padding: 5px;
+            border-radius: 5px;
         }
         header .logo img {
             height: 60px;
@@ -122,7 +121,7 @@
             color: #003063;
             font-weight: 700;
         }
-        .experiencia-section p{
+        .experiencia-section p {
             font-size: 1.2em;
             color: #555;
             max-width: 800px;
@@ -428,21 +427,21 @@
         const form = document.getElementById('contacto-form');
 
         form.addEventListener('submit', (event) => {
-            event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+            event.preventDefault();
 
             const formData = new FormData(form);
 
-            fetch('/enviar_correo', {  // La ruta debe coincidir con la definida en tu script de backend
+            fetch('/enviar_correo', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert(data.message); // Muestra un mensaje de éxito
-                    form.reset(); // Opcional: Resetea el formulario
+                    alert(data.message);
+                    form.reset();
                 } else {
-                    alert(data.message); // Muestra un mensaje de error
+                    alert(data.message);
                 }
             })
             .catch(error => {
